@@ -7,6 +7,13 @@ class Loader {
 
   }
 
+  loadTextFromFile(file) {
+    return new Promise(async (resolve) => {
+      const response = await fetch(file);
+      resolve(response.text());
+    });
+  }
+
   loadModel(positions, colors, indices) {
     const vao = gl.createVertexArray();
     gl.bindVertexArray(vao);
