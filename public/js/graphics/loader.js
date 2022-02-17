@@ -3,9 +3,7 @@
 
 class Loader {
 
-  constructor() {
-
-  }
+  constructor() {}
 
   loadTextFromFile(file) {
     return new Promise(async (resolve) => {
@@ -14,11 +12,11 @@ class Loader {
     });
   }
 
-  loadModel(positions, colors, indices) {
+  loadModel(positions, normals, indices) {
     const vao = gl.createVertexArray();
     gl.bindVertexArray(vao);
-    this.loadVBO(0, 2, positions, false);
-    this.loadVBO(1, 3, colors, false);
+    this.loadVBO(0, 3, positions, false);
+    this.loadVBO(1, 3, normals, true);
     gl.bindVertexArray(null);
     const ebo = this.loadEBO(indices);
     return [vao, ebo, indices.length];

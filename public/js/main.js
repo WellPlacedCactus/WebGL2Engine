@@ -1,16 +1,22 @@
 
-/** Instantiates all global variables in the project **/
+/** Instantiates all things global in the project **/
 
 /** VARIABLES **/
 
 const canvas = document.querySelector('canvas');
 const gl = canvas.getContext('webgl2');
+const mat4 = glMatrix.mat4;
+const vec3 = glMatrix.vec3;
 
 const keys = [];
 const mouse = {};
 mouse.x = 0;
 mouse.y = 0;
 mouse.down = false;
+
+/** FUNCTIONS **/
+
+const randint = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
 /** EVENT HANDLERS **/
 
