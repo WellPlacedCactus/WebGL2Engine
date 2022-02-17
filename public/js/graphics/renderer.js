@@ -25,7 +25,8 @@ class Renderer {
     gl.enableVertexAttribArray(1);
 
     entities.forEach(e => {
-    shader.setMatrix('model', e.getModel());
+      shader.setMatrix('model', e.getModel());
+      shader.setVec3('objectColor', e.color);
       gl.drawElements(gl.TRIANGLES, model[2], gl.UNSIGNED_SHORT, 0);
     });
     
